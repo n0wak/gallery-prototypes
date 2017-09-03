@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+
+    {{> header}}
+
+    <main>
+
+      <div class="gallery">
+        <div class="gallery__grid">
+          {{#each gallery}}
+
+            {{> gallery-image}}
+          {{/each}}
+        </div>
+      </div>
+
+
+    </main>
+
+    {{> footer}}
+
+  </body>
+</html>

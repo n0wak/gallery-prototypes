@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-cli": "^1.4.0",
+    "gulp-hb": "^6.0.2",
+    "gulp-rename": "^1.2.2",
+    "gutil": "^1.6.4",
+    "node-sass": "^4.5.3",
+    "object-fit": "^0.4.3",
+    "webpack": "^3.5.5",
+    "webpack-stream": "^4.0.0",
+    "yargs": "^8.0.2"
+  },
+  "private": false,
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
+}

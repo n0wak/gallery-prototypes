@@ -1,0 +1,20 @@
+<div class="gallery__grid__item gallery__grid__item--{{class}}" style="order:{{@index}}">
+  {{#if url_slug}}<a href="/gallery/{{url_slug}}/" class="eone--tile" name="{{title}}" tabindex="0"
+   >{{/if}}
+    <header class="gallery__grid__item__header type--sub">
+      <h2 class="type--base">{{title}}</h2>
+      <h1 class="type--doublebase">{{short}}</h1>
+    </header>
+    <picture class="gallery__image lazy-load" data-src="{{poster.imgix}}">
+
+      {{#eq ../class "single"}}{{/eq}}
+      <source media="(min-width: 1600px)" srcset="{{src}}?auto=format&w=1500&h=633&fit=crop&crop=">
+      <source media="(min-width: 1024px) and (min-width: 1599px)" srcset="{{src}}?auto=format&w=1280&h=550&fit=crop&crop=">
+      <source media="(max-width: 1023px) and (min-width: 769px)" srcset="{{src}}?auto=format&w=820&h=413&fit=crop&crop=">
+      <source media="(max-width: 768px) and (min-width: 481px)" srcset="{{src}}?auto=format&w=768&h=325&fit=crop&crop=">
+      <source media="(max-width: 480px)" srcset="{{src}}?auto=format&w=480&h=250&fit=crop&crop=">
+      <img class="" data-object-fit="cover" src="{{src}}?auto=format&w=400&h=250&fit=crop&crop=" alt="">
+
+    </picture>
+  {{#url_slug}}</a>{{/url_slug}}
+</div>
