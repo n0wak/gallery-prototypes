@@ -15,50 +15,140 @@ module.exports = {
   gallery : [
 
     {
-      src : "https://eonewebsite.imgix.net/cmsasset/feature/6260921280657096704/385a51264606.jpg",
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0286.jpg",
       class : "single",
-      url : "first",
-      title : "Blasters of the Universe",
+      url : "the-continent",
+      title : "The Continent",
       description : "Description"
 
     },
 
     {
-      src : "https://eonewebsite-dev.imgix.net/dev/cmsasset/feature/6242020667298938880/a0528684f4d3.jpg",
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0367.jpg",
       class : "double",
-      url : "second",
-      title : "Blasters of the Universe",
+      url : "icebergs-1",
+      title : "Icebergs 1",
       description : "Description"
 
     },
     {
-      src : "https://eonewebsite.imgix.net/cmsasset/feature/6274957229472874496/51e10da4a468.jpg",
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0461.jpg",
       class : "double",
-      url : "third",
-      title : "Blasters of the Universe",
+      url : "icebergs-2",
+      title : "Icebergs 2",
       description : "Description"
 
     },
     {
+      type : "text",
       class : "text",
-      url : "third",
-      title : "Blasters of the Universe",
+      url : "text",
+      title : "Some text goes here",
       description : "Description"
 
     },
     {
-      src : "https://eonewebsite.imgix.net/cmsasset/feature/6260921280657096704/385a51264606.jpg",
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0323.jpg",
       class : "single",
-      url : "third",
-      title : "Blasters of the Universe",
+      url : "penguin-colony",
+      title : "Penguin Colony",
+      description : "Description"
+
+    },
+
+    {
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0508.jpg",
+      class : "double",
+      url : "overnight-damoy-1",
+      title : "Overnight at Damoy",
       description : "Description"
 
     },
     {
-      src : "https://eonewebsite.imgix.net/cmsasset/feature/6260921280657096704/385a51264606.jpg",
-      class : "single",
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0512.jpg",
+      class : "double",
       url : "third",
-      title : "Blasters of the Universe",
+      title : "Overnight at Damoy",
+      description : "Description"
+
+    },
+    {
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0533.jpg",
+      class : "single",
+      url : "overnight-damoy-2",
+      title : "Night Sun, 2AM",
+      description : "Description"
+
+    },
+    {
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0554.jpg",
+      crop : "bottom",
+      class : "damoy-point",
+      url : "third",
+      title : "Damoy Point",
+      description : "Description"
+
+    },
+
+    {
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0984.jpg",
+      class : "triple",
+      url : "deception-1",
+      title : "Deception",
+      description : "Description"
+
+    },
+    {
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0957.jpg",
+      class : "triple",
+      url : "deception-entering",
+      title : "Deception",
+      description : "Description"
+
+    },
+    {
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0960.jpg",
+      class : "triple",
+      url : "deception-2",
+      title : "Deception",
+      description : "Description"
+
+    },
+
+    {
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0710.jpg",
+      class : "single",
+      url : "mountains",
+      title : "Mountains",
+      description : "Description"
+
+    },
+    {
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0717.jpg",
+      class : "single",
+      url : "sunlight",
+      title : "Sunlit",
+      description : "Description"
+
+    },
+    {
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0280.jpg",
+      class : "single",
+      url : "sunset",
+      title : "Sun Setting",
       description : "Description"
 
     }

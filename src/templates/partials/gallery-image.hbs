@@ -1,4 +1,4 @@
-<div class="gallery__grid__item gallery__grid__item--{{class}}" style="order:{{@index}}">
+<div id="gallery_grid__item__class{{@index}}" class="gallery__grid__item gallery__grid__item--{{class}}" style="order:{{@index}}">
   {{#if url_slug}}<a href="/gallery/{{url_slug}}/" class="" name="{{title}}" tabindex="0"
    >{{/if}}
    <div class="gallery__tile">
@@ -11,12 +11,12 @@
       <picture class="gallery__tile__image lazy-load" data-src="{{poster.imgix}}">
 
         {{#eq ../class "single"}}{{/eq}}
-        <source media="(min-width: 1600px)" srcset="{{src}}?auto=format&w=1600&h=1024&fit=crop&crop=">
-        <source media="(min-width: 1024px) and (max-width: 1599px)" srcset="{{src}}?auto=format&w=1600&h=800&fit=crop&crop=">
-        <source media="(max-width: 1023px) and (min-width: 769px)" srcset="{{src}}?auto=format&w=1024&h=640&fit=crop&crop=">
-        <source media="(max-width: 768px) and (min-width: 481px)" srcset="{{src}}?auto=format&w=768&h=428&fit=crop&crop=">
-        <source media="(max-width: 480px)" srcset="{{src}}?auto=format&w=480&h=320&fit=crop&crop=">
-        <img class="" data-object-fit="cover" src="{{src}}?auto=format&w=400&h=320&fit=crop&crop=" alt="">
+        <source media="(min-width: 1600px)" srcset="{{src}}?auto=format&w=1600&h=1024&fit=crop&crop={{crop}}">
+        <source media="(min-width: 1024px) and (max-width: 1599px)" srcset="{{src}}?auto=format&w=1600&h=800&fit=crop&crop={{crop}}">
+        <source media="(max-width: 1023px) and (min-width: 769px)" srcset="{{src}}?auto=format&w=1024&h=640&fit=crop&crop={{crop}}">
+        <source media="(max-width: 768px) and (min-width: 481px)" srcset="{{src}}?auto=format&w=768&h=428&fit=crop&crop={{crop}}">
+        <source media="(max-width: 480px)" srcset="{{src}}?auto=format&w=480&h=320&fit=crop&crop={{crop}}">
+        <img class="" data-object-fit="cover" src="{{src}}?auto=format&w=400&h=320&fit=crop&crop={{crop}}" alt="">
 
       </picture>
       {{/if}}

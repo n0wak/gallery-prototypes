@@ -13,6 +13,10 @@ APP
 
 
 */
+
+var Header = require('./modules/Header.js');
+var Navigation = require('./modules/nav.js');
+
 var verge = require('./vendor/verge.min.js');
 
 !function() {
@@ -22,10 +26,16 @@ var verge = require('./vendor/verge.min.js');
 	let gridItems = [];
 	let current = false;
 
+	let nav;
+
+	let header = new Header(document.getElementsByClassName("intro__header"))
+
 
 	let getCurrent = function() {
 
 		let gtop = document.getElementsByClassName("gallery")[0].offsetTop;
+
+		let activeIndex = -1;
 
 		for (let [index, item] of gridItems.entries()) {
 			//console.log (item, );
@@ -40,28 +50,31 @@ var verge = require('./vendor/verge.min.js');
 				// }
 			}
 			if (current == true && last == true) {
-				console.log(">> ", item.dom.offsetTop, lastScrollPos, verge.viewportH());
+				//console.log(">> ", item.dom.offsetTop, lastScrollPos, verge.viewportH());
 				let diff = Math.abs( ( lastScrollPos + gtop/2 - item.dom.offsetTop) / verge.viewportH() );
 				diff = diff<.5 ? 2*diff*diff : -1+(4-2*diff)*diff;
 				//
-				console.log(Math.abs(diff));
+				//console.log(Math.abs(diff));
 
 				item.dom.style.opacity = 1 - Math.abs(diff);
 
 				if (1 - diff > 0.65) {
 					item.dom.classList.add('active');
+					activeIndex = index;
+
 				} else {
 					item.dom.classList.remove('active');
 				}
 
 			}
 		}
+		nav.setIndex(activeIndex);
+
 	}
 
 
 
-
-
+	let navPoint = 0;
 
 	let main = function() {
     console.log("MAIN", t, verge);
@@ -69,10 +82,28 @@ var verge = require('./vendor/verge.min.js');
 		let _items = document.getElementsByClassName("gallery__grid__item");
 		for (let _item of _items) {
 			//let isVis = verge.inViewport(_item);
-			gridItems.push({dom:_item, visible: false, active: false});
+			gridItems.push({dom:_item, visible: false, active: false, loaded : false});
 		}
 
+
+
+		nav = new Navigation(document.getElementsByClassName("intro__nav")[0]);
+
+		navPoint = nav.getPos();
+
+		window.addEventListener('scroll', function(e) {
+		  lastScrollPos = verge.scrollY();
+		  if (!isScrolling) {
+		    window.requestAnimationFrame(function() {
+		      onScroll(lastScrollPos);
+		      isScrolling = false;
+		    });
+		  }
+		  isScrolling = true;
+		});
+
 		getCurrent();
+
   };
 
 
@@ -86,17 +117,16 @@ var verge = require('./vendor/verge.min.js');
 	let onScroll = function( pos ) {
 		//console.log ("scroll", pos);
 		getCurrent();
+
+		console.log(pos);
+		if (pos >= navPoint) {
+			nav.setSticky(true);
+		} else {
+			nav.setSticky(false);
+		}
+
 	}
 
 
-	window.addEventListener('scroll', function(e) {
-	  lastScrollPos = verge.scrollY();
-	  if (!isScrolling) {
-	    window.requestAnimationFrame(function() {
-	      onScroll(lastScrollPos);
-	      isScrolling = false;
-	    });
-	  }
-	  isScrolling = true;
-	});
+
 }();
