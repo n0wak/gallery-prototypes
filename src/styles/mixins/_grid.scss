@@ -1,0 +1,81 @@
+/*
+  Grid layout for eOne.
+*/
+
+
+/*
+  Generic grid container. Every grid should be a horizontal flex layout.
+  Non sizing, positional styles should be declared separately. This is meant
+  to be super generic so don't add content styling here.
+  Please refer to https://secretlocation.atlassian.net/wiki/display/EONEWEBSTE/CSS+and+Class+Naming+Conventions
+
+*/
+.gallery__grid {
+  width : 100%;
+  display : flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+
+  &__alt {
+    margin-left : -3px;
+    width : calc(100% + 6px);
+    /*border-top : 3px solid $color-invert;
+    border-bottom : 3px solid $color-invert;
+    border-left : 6px solid $color-invert;
+    border-right : 6px solid $color-invert;*/
+  }
+}
+
+
+
+/*
+  Containing item. Everything has a default height of 500 unless specified otherwise.
+*/
+.gallery__grid__item {
+  position : relative;
+  overflow : hidden;
+
+  flex : 1 100%;
+  min-height : 65vh;
+
+  @include media(">=large") {
+    min-height : 575px;
+  }
+
+  //@include media(">=desktop", "<large") {
+    //min-height : 500px;
+  //}
+  @include media(">tablet", "<desktop") {
+    //min-height : 375px;
+  }
+  @include media("<=tablet") {
+    //min-height : 325px;
+  }
+  @include media("<=phablet") {
+  //min-height : 250px;
+  }
+
+  &--double {
+    flex : 1 50%;
+    min-height : 50vh;
+  }
+}
+
+/*
+
+  The default grid used on the site is a five column relative grid (20% each)
+  where the number of colspans is defined by a,b,c,d,e = 1,2,3,4,5 respectively.
+
+*/
+@include media(">tablet") {
+
+}
+
+
+
+
+@include media("<=tablet") {
+
+
+}

@@ -1,0 +1,16 @@
+
+
+@import 'mixins/_include-media';
+
+@import 'mixins/_base';
+
+
+@import 'mixins/_grid';
+@import 'mixins/_picture';
+
+
+.gallery {
+  width : 100%;
+  overflow: hidden;
+  height : auto;
+}

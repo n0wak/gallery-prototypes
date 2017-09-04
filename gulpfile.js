@@ -11,6 +11,9 @@ var gulp = require('gulp')
   ,   webpackStream   = require('webpack-stream')
 
 
+  ,   sass            = require('gulp-sass')
+
+
   ,   connect         = require('gulp-connect')           // run local server
 
   // ,   htmlmin         = require("gulp-htmlmin")
@@ -90,7 +93,9 @@ gulp.task ("compile-scripts", function(cb) {
 
 return gulp.src ( scripts.src )
   .pipe(webpackStream(webpackConfig), webpack)
-  .pipe(gulp.dest(scripts.dest));
+  .pipe(gulp.dest(scripts.dest))
+
+  .pipe(connect.reload());
 
 });
 
@@ -150,23 +155,58 @@ gulp.task ("compile-templates", function(cb) {
       )
       //.pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
       .pipe( gulp.dest (templates.dest) )
+      .pipe(connect.reload())
   ;
 });
 
 
+// Start the local server.
+gulp.task('compile-styles', function(cb) {
+
+    var src  = "./src/styles/**/*.scss",
+        dest = "./public/" + env + "/assets/styles/";
+
+    var sassOptions = {
+        errLogToConsole: true,
+        outputStyle: 'expanded'
+    };
+
+    gulp.src(src)
+        .pipe(
+            sass(sassOptions)
+            .on('error', sass.logError)
+        )
+        /*.pipe(autoprefixer({ browsers : ['IE > 8', 'ios >= 7']}))
+        .pipe(cssnano(
+            {
+                discardUnused:false,
+                zindex:false,
+                reduceIdents : false,
+                mergeIdents : false
+            }))
+        .pipe(rename({
+            dirname:'',
+            suffix:build
+        }))*/
+        .pipe(gulp.dest(dest))
+        .pipe(connect.reload())
+        .on('end', cb);
+});
+
 // Watch for changes.
-gulp.task('watch', function() {
+gulp.task('gwatch', function() {
   gutil.log(gutil.colors.green('Watching for changes.'));
 
   //gulp.watch("./src/, ['watched', 'copy-assets'] );
   gulp.watch("./src/scripts/**/*.js", gulp.series('compile-scripts') );
-  gulp.watch("./src/scripts/**/*.html",  gulp.series('compile-templates') );
+  gulp.watch("./src/templates/**/*.html",  gulp.series('compile-templates') );
+  gulp.watch("./src/templates/**/*.hbs",  gulp.series('compile-templates') );
+  gulp.watch("./src/styles/**/*.scss",  gulp.series('compile-styles') );
     //gulp.watch(config.src + config.styles.watch, ['watched', 'compile-styles'] );
 });
 
 // Start the local server.
   gulp.task('connect', function() {
-      console.log(gconfig.environments[env].dest);
       connect.server({
           root: gconfig.environments[env].dest,
           livereload: true,
@@ -176,6 +216,6 @@ gulp.task('watch', function() {
 
 
   // Build, start server and watch for changes.
-  gulp.task('default', gulp.series('compile-templates', 'connect', 'watch'), function(cb) {
+  gulp.task('default', gulp.parallel('compile-templates', 'compile-styles', 'compile-scripts', 'connect', 'gwatch'), function(cb) {
 
   });
