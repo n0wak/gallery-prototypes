@@ -37,10 +37,10 @@
   overflow : hidden;
 
   flex : 1 100%;
-  min-height : 65vh;
+  min-height : 55vh;
 
   @include media(">=large") {
-    min-height : 575px;
+    //min-height : 575px;
   }
 
   //@include media(">=desktop", "<large") {

@@ -43,7 +43,7 @@ var verge = require('./vendor/verge.min.js');
 				console.log(">> ", item.dom.offsetTop, lastScrollPos, verge.viewportH());
 				let diff = Math.abs( ( lastScrollPos + gtop/2 - item.dom.offsetTop) / verge.viewportH() );
 				diff = diff<.5 ? 2*diff*diff : -1+(4-2*diff)*diff;
-
+				//
 				console.log(Math.abs(diff));
 
 				item.dom.style.opacity = 1 - Math.abs(diff);

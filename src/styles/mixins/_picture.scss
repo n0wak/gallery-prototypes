@@ -6,7 +6,25 @@
   left : 0;
   right : 0;
   bottom : 0;
-  padding : 0.75rem;
+
+
+  perspective: 1000px;
+
+  transition : all 0.25s ease-in;
+
+  &:hover {
+    background : #000055;
+
+    .gallery__tile__header {
+
+      transform : translateY(0);
+    }
+    .gallery__tile__image  {
+      transform-origin: 50% 50%;
+      transform: scale(1.1) translateX(0rem) rotateX(-25deg);
+    }
+  }
+
 }
 
 .gallery__tile__header {
@@ -15,14 +33,26 @@
   left : 0;
   right : 0;
   bottom : 0;
+  color : #FFF;
+  padding : 0 1.25rem 0.25rem 1.25rem;
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  color : #EEE;
+  line-height:1.4;
 
+  transition : all 0.25s ease-in;
+  transform : translateY(2rem);
 }
 
 
 .gallery__tile__image {
   position : absolute;
   z-index : 5;
-  background : #DDD;
+  background : #FFF;
+  padding : 0.5rem 1rem;
+
+  transition : all 0.25s ease-in;
+
 }
 
 .gallery__tile__image, .gallery__tile__image img {

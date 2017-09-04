@@ -7,19 +7,25 @@
 
     {{> header}}
 
-    <main>
-      <header class="intro" style="padding: 1vw 5vw 5vw 2.5vw; display:flex;flex-direction:column;justify-content:flex-end;background : #EEE; top:0;">
+    <main style="width:90%; margin : 0 auto;">
+      <header class="intro">
 
         <h1 style="font-family: 'Lato', cursive; font-size: 7rem; color : #555;line-height:1.5">Gallery test</h1>
         <p style="font-family: 'Lora', serif; font-size: 1.75rem; color : #404040; line-height:1.4">The gallery here was created on Monday September 4th with some boiler plate creation on Sunday September 3rd.</h1>
       </header>
+      <nav class="intro__nav ">
+        {{#each gallery}}
+          <a href="#" class="intro__nav__item">
+            <img src="{{src}}?w=128&h=64&fit=crop&crop=entropy" />
+        {{/each}}
+      </nav>
 
       <div class="gallery" style="_margin-top:45vh;">
         <div class="gallery__grid">
           {{#each gallery}}
 
             {{> gallery-image}}
-            
+
           {{/each}}
         </div>
       </div>

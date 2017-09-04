@@ -1,0 +1,57 @@
+
+
+
+.intro {
+  width : 100%;
+  height : 55vh;
+  padding: 1rem 1rem 0 1rem;
+  display:flex;
+  flex-direction: column;
+  align-content : flex-end;
+  justify-content:flex-end;
+
+  background : #EEE;
+  top:0;
+
+  padding-bottom : 6rem;
+}
+
+
+
+.intro__nav {
+  width : 100%;
+  height : 4rem;
+  margin-top : 2rem;
+  display : flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background : #F0F000;
+
+  transition : all 0.5s ease-in-out;
+  position : absolute;
+  width : 90%;
+
+  margin-top : -5rem;
+
+  &.sticky {
+    position : fixed;
+    top : 0;
+    left : 5%;
+    margin : 0;
+    z-index : 9999;
+    box-shadow: 0 25px 20px 10px rgba(0,0,0,0.2);
+  }
+}
+
+
+.intro__nav__item {
+  height : 64px;
+  width : 10vw;
+  overflow : hidden;
+  position : relative;
+  object-fit:cover;
+}
+
+.intro__nav__item img {
+  display : block;
+}
