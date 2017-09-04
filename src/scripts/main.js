@@ -62,6 +62,14 @@ var verge = require('./vendor/verge.min.js');
 					item.dom.classList.add('active');
 					activeIndex = index;
 
+					if (!item.dom.classList.contains('loaded')) {
+						let d = Array.prototype.slice.call(item.dom.getElementsByTagName("source"));
+						d.map(function(_item) {
+							_item.setAttribute("srcset", _item.getAttribute("_srcset"));
+						})
+
+					}
+
 				} else {
 					item.dom.classList.remove('active');
 				}
@@ -102,6 +110,7 @@ var verge = require('./vendor/verge.min.js');
 		  isScrolling = true;
 		});
 
+		window.dispatchEvent(new Event("scroll"));
 		getCurrent();
 
   };
@@ -117,14 +126,11 @@ var verge = require('./vendor/verge.min.js');
 	let onScroll = function( pos ) {
 		//console.log ("scroll", pos);
 		getCurrent();
-
-		console.log(pos);
 		if (pos >= navPoint) {
 			nav.setSticky(true);
 		} else {
 			nav.setSticky(false);
 		}
-
 	}
 
 
