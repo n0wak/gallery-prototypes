@@ -6,6 +6,8 @@
         <h2 class="type--base">{{title}}</h2>
         <h1 class="type--doublebase">{{short}}</h1>
       </header>
+
+      {{#if src}}
       <picture class="gallery__tile__image lazy-load" data-src="{{poster.imgix}}">
 
         {{#eq ../class "single"}}{{/eq}}
@@ -17,6 +19,7 @@
         <img class="" data-object-fit="cover" src="{{src}}?auto=format&w=400&h=320&fit=crop&crop=" alt="">
 
       </picture>
+      {{/if}}
     </div>
 
   {{#url_slug}}</a>{{/url_slug}}

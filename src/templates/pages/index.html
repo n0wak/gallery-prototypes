@@ -8,12 +8,18 @@
     {{> header}}
 
     <main>
+      <header class="intro" style="padding: 1vw 5vw 5vw 2.5vw; display:flex;flex-direction:column;justify-content:flex-end;background : #EEE; top:0;">
 
-      <div class="gallery">
+        <h1 style="font-family: 'Lato', cursive; font-size: 7rem; color : #555;line-height:1.5">Gallery test</h1>
+        <p style="font-family: 'Lora', serif; font-size: 1.75rem; color : #404040; line-height:1.4">The gallery here was created on Monday September 4th with some boiler plate creation on Sunday September 3rd.</h1>
+      </header>
+
+      <div class="gallery" style="_margin-top:45vh;">
         <div class="gallery__grid">
           {{#each gallery}}
 
             {{> gallery-image}}
+            
           {{/each}}
         </div>
       </div>
@@ -22,6 +28,6 @@
     </main>
 
     {{> footer}}
-
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:100|Julius+Sans+One|Lato:100|Lora|Montserrat:100|Raleway:100" rel="stylesheet">
   </body>
 </html>

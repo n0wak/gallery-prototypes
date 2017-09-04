@@ -56,9 +56,24 @@
   //min-height : 250px;
   }
 
+  opacity : 0;
+
   &--double {
     flex : 1 50%;
     min-height : 50vh;
+  }
+
+  transition : all 0.5s ease-out;
+
+  &.active{
+    //position : fixed;
+    opacity : 1 !important;
+    z-index : 999;
+
+    .gallery__tile {
+      //position : fixed;
+    }
+    top : 0;
   }
 }
 
