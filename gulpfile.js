@@ -172,13 +172,14 @@ function BuildPagePipe(src, dest, data, fn) {
     .pipe(
         hb (
             {
-                'debug' : false
+                'debug' : true
                 ,
                 'compileOptions' : {
                   'compat' : true
                 }
             }
         )
+        .data(data)
         .data(templateData)
         .partials('./client/templates/partials/**/*.mustache')
         .helpers(hbHelpers)
@@ -203,7 +204,7 @@ function BuildPagePipe(src, dest, data, fn) {
 gulp.task ("compile-images", function(cb) {
 
   var templates = {
-    "src" : "./src/templates/dynamic/image.hbs",
+    "src" : "./src/templates/dynamic/image.html",
     "dest" : "./public/" + env + "/image"
   };
 
@@ -260,9 +261,9 @@ gulp.task('gwatch', function() {
 
   //gulp.watch("./src/, ['watched', 'copy-assets'] );
   gulp.watch("./src/scripts/**/*.js", gulp.series('compile-scripts') );
-  gulp.watch("./src/templates/**/*.html",  gulp.series('compile-templates') );
-  gulp.watch("./src/templates/**/*.hbs",  gulp.series('compile-templates') );
-  gulp.watch("./src/styles/**/*.scss",  gulp.series('compile-styles') );
+  gulp.watch("./src/templates/**/*.html", gulp.series('compile-images', 'compile-templates') );
+  gulp.watch("./src/templates/**/*.hbs", gulp.series('compile-templates') );
+  gulp.watch("./src/styles/**/*.scss", gulp.series('compile-styles') );
     //gulp.watch(config.src + config.styles.watch, ['watched', 'compile-styles'] );
 });
 

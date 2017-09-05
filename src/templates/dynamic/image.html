@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  </head>
+  <body>
+
+    <main style="width:98%; margin : 2% auto;">
+
+      <picture class="gallery__full__image">
+
+        <source media="(min-width: 1600px)" srcset="{{src}}?auto=format&w=1900&h=1024&fit=crop&crop={{crop}}">
+        <source media="(min-width: 1024px) and (max-width: 1599px)" srcset="{{src}}?auto=format&w=1600&h=862&fit=crop&crop={{crop}}">
+        <source media="(max-width: 1023px) and (min-width: 769px)" srcset="{{src}}?auto=format&w=1024&h=552&fit=crop&crop={{crop}}">
+        <source media="(max-width: 768px) and (min-width: 481px)" srcset="{{src}}?auto=format&w=768&h=413&fit=crop&crop={{crop}}">
+        <source media="(max-width: 480px)" srcset="{{src}}?auto=format&w=480&h=258&fit=crop&crop={{crop}}">
+        <img class="" data-object-fit="cover" src="{{src}}?auto=format&w=320&h=172&blur=10&fit=crop&crop={{crop}}" alt="">
+
+      </picture>
+
+    </main>
+
+    <link rel="stylesheet" href="/assets/styles/main.css" />
+  </body>
+</html>

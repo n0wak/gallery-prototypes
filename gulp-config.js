@@ -46,7 +46,6 @@ module.exports = {
     {
       type : "text",
       class : "text",
-      url : "text",
       title : "Some text goes here",
       description : "Description"
 
@@ -93,8 +92,8 @@ module.exports = {
       type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP0554.jpg",
       crop : "bottom",
-      class : "damoy-point",
-      url : "third",
+      class : "single",
+      url : "damoy-point",
       title : "Damoy Point",
       description : "Description"
 
@@ -211,6 +210,15 @@ module.exports = {
       description : "Description"
 
     },
+    {
+      type : "image",
+      src : "https://mikenowak.imgix.net/antarctica/IMGP0671.jpg",
+      class : "single",
+      url : "ship",
+      title : "Expedition",
+      description : "Description"
+    },
+
     {
       type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP0280.jpg",
