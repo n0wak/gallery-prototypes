@@ -28,6 +28,7 @@ module.exports = {
       type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP0367.jpg",
       class : "double",
+      crop : "bottom",
       url : "icebergs-1",
       title : "Icebergs 1",
       description : "Description"
@@ -73,6 +74,7 @@ module.exports = {
       type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP0512.jpg",
       class : "double",
+      crop : "bottom",
       url : "third",
       title : "Overnight at Damoy",
       description : "Description"
@@ -88,6 +90,7 @@ module.exports = {
 
     },
     {
+      type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP0554.jpg",
       crop : "bottom",
       class : "damoy-point",
@@ -203,8 +206,8 @@ module.exports = {
       type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP1086.jpg",
       class : "single",
-      url : "asd",
-      title : "Sun Setting",
+      url : "outcrop",
+      title : "Outcropping",
       description : "Description"
 
     },

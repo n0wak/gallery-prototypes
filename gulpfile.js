@@ -1,6 +1,7 @@
 var gulp = require('gulp')
   ,   fs              = require('fs')
   ,   rename          = require('gulp-rename')            // rename files or folders
+  ,   del             = require('del')                    // delete files and folders
   ,   hb              = require("gulp-hb")                // handlebar templates for html
 
   ,   gutil           = require('gulp-util')              // console logging
@@ -61,13 +62,40 @@ function onError(error) { handleError.call(this, 'error', error);}
 function onWarning(error) { handleError.call(this, 'warning', error);}
 
 
+
+
+let hbHelpers = {
+  foreach: function(arr,options) {
+        if(options.inverse && !arr.length)
+            return options.inverse(this);
+
+        return arr.map(function(item,index) {
+            item.$index = index;
+            item.$first = index === 0;
+            item.$last  = index === arr.length-1;
+            return options.fn(item);
+        }).join('');
+    },
+eq : function(a, b, options) {
+      if (arguments.length === 2) {
+          options = b;
+          b = options.hash.compare;
+      }
+      if (a === b) {
+        return options.fn(this);
+      }
+      return options.inverse(this);
+    }
+
+};
+
 function init(cb) {
   // set environment if specified
   env = !!args.env ? args.env : env;
   gutil.log('Building for', gutil.colors.yellow(env), 'environment.');
 
 
-  if (typeof environments[env] == "undefined") {
+  if (typeof gconfig.environments[env] == "undefined") {
     cb ( new Error("Invalid env") );
     return;
   }
@@ -78,8 +106,7 @@ function init(cb) {
 // deletes entire build target
 function clean(cb) {
   console.log("\n");
-  del(environments[env].dest);
-  mkdirp(environments[env].dest);
+  //del(gconfig.environments[env].dest);
   cb()
 };
 
@@ -101,9 +128,6 @@ return gulp.src ( scripts.src )
 
 gulp.task ("compile-templates", function(cb) {
 
-  //setTaskValues();
-
-
   var templates = {
     "src" : "./src/templates/pages/**/*.html",
     "dest" : "./public/" + env
@@ -111,7 +135,6 @@ gulp.task ("compile-templates", function(cb) {
 
   let templateData = {
     title : "THE TITLE",
-
     gallery : gconfig.gallery
   };
 
@@ -128,35 +151,73 @@ gulp.task ("compile-templates", function(cb) {
           )
           .partials('./src/templates/partials/**/*.hbs')
           .data(templateData)
-          .helpers({
-            foreach: function(arr,options) {
-                  if(options.inverse && !arr.length)
-                      return options.inverse(this);
-
-                  return arr.map(function(item,index) {
-                      item.$index = index;
-                      item.$first = index === 0;
-                      item.$last  = index === arr.length-1;
-                      return options.fn(item);
-                  }).join('');
-              },
-          eq : function(a, b, options) {
-                if (arguments.length === 2) {
-                    options = b;
-                    b = options.hash.compare;
-                }
-                if (a === b) {
-                  return options.fn(this);
-                }
-                return options.inverse(this);
-              }
-
-          })
+          .helpers(hbHelpers)
       )
       //.pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
       .pipe( gulp.dest (templates.dest) )
       .pipe(connect.reload())
   ;
+});
+
+
+function BuildPagePipe(src, dest, data, fn) {
+
+  let templateData = {
+    title : "THE TITLE",
+    gallery : gconfig.gallery
+  };
+
+
+  return gulp.src ( src )
+    .pipe(
+        hb (
+            {
+                'debug' : false
+                ,
+                'compileOptions' : {
+                  'compat' : true
+                }
+            }
+        )
+        .data(templateData)
+        .partials('./client/templates/partials/**/*.mustache')
+        .helpers(hbHelpers)
+    )
+    .pipe ( rename (
+        function (path) {
+            if (fn) {
+              path.basename = fn;
+            } else {
+              path.basename = "index";
+            }
+            path.extname = ".html";
+        }
+    ))
+    //.pipe(inlinesource(inlineOptions))
+    //.pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
+    .pipe( gulp.dest (dest) )
+  ;
+  // cb();
+}
+
+gulp.task ("compile-images", function(cb) {
+
+  var templates = {
+    "src" : "./src/templates/dynamic/image.hbs",
+    "dest" : "./public/" + env + "/image"
+  };
+
+  let templateData = {
+    title : "THE TITLE",
+    gallery : gconfig.gallery
+  };
+
+  for (img of gconfig.gallery) {
+      console.log ("       ", "IMAGE  ", img.url);
+      BuildPagePipe(templates.src, templates.dest + "/" + img.url, img);
+  }
+
+  cb();
 });
 
 
@@ -214,8 +275,12 @@ gulp.task('gwatch', function() {
       });
   });
 
+  gulp.task("clean", clean);
+  // Set the active environment using command line args (e.g. "gulp --env dev")
+  gulp.task('init', init);
+
 
   // Build, start server and watch for changes.
-  gulp.task('default', gulp.parallel('compile-templates', 'compile-styles', 'compile-scripts', 'connect', 'gwatch'), function(cb) {
+  gulp.task('default', gulp.series('init', 'clean', gulp.parallel('compile-templates', 'compile-images', 'compile-styles', 'compile-scripts'), 'connect', 'gwatch'), function(cb) {
 
   });

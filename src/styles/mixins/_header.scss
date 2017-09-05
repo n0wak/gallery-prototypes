@@ -53,9 +53,19 @@
   position : relative;
   object-fit:cover;
   padding: 2px;
-
+  opacity : 0.7;
   &.active {
-    background : #00F;
+    opacity : 1;
+    &:before {
+      display : block;
+      content : ' ';
+      position : absolute;
+      background : #3F4F70;
+      opacity : 0.8;
+      top : 0; left : 0; right : 0; bottom: 0;
+
+    }
+    //background : #3F4F70;
   }
 }
 

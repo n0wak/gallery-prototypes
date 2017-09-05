@@ -37,6 +37,8 @@ var verge = require('./vendor/verge.min.js');
 
 		let activeIndex = -1;
 
+		console.log('g c');
+
 		for (let [index, item] of gridItems.entries()) {
 			//console.log (item, );
 			let last = item.visible;
@@ -45,11 +47,8 @@ var verge = require('./vendor/verge.min.js');
 				console.log ("CHANGE", gridItems[index]);
 				gridItems[index].visible = current;
 
-				// if (!current) {
-				// 	item.dom.classList.remove('active', current);
-				// }
 			}
-			if (current == true && last == true) {
+			//if (current == true && last == true) {
 				//console.log(">> ", item.dom.offsetTop, lastScrollPos, verge.viewportH());
 				let diff = Math.abs( ( lastScrollPos + gtop/2 - item.dom.offsetTop) / verge.viewportH() );
 				diff = diff<.5 ? 2*diff*diff : -1+(4-2*diff)*diff;
@@ -74,7 +73,7 @@ var verge = require('./vendor/verge.min.js');
 					item.dom.classList.remove('active');
 				}
 
-			}
+			//}
 		}
 		nav.setIndex(activeIndex);
 
