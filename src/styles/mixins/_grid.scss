@@ -1,30 +1,11 @@
-/*
-  Grid layout for eOne.
-*/
 
 
-/*
-  Generic grid container. Every grid should be a horizontal flex layout.
-  Non sizing, positional styles should be declared separately. This is meant
-  to be super generic so don't add content styling here.
-  Please refer to https://secretlocation.atlassian.net/wiki/display/EONEWEBSTE/CSS+and+Class+Naming+Conventions
 
-*/
 .gallery__grid {
   width : 100%;
   display : flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-
-  &__alt {
-    margin-left : -3px;
-    width : calc(100% + 6px);
-    /*border-top : 3px solid $color-invert;
-    border-bottom : 3px solid $color-invert;
-    border-left : 6px solid $color-invert;
-    border-right : 6px solid $color-invert;*/
-  }
 }
 
 
@@ -38,48 +19,53 @@
 
   flex : 1 100%;
   min-height : 55vh;
-
-  @include media(">=large") {
-    //min-height : 575px;
-  }
-
-  //@include media(">=desktop", "<large") {
-    //min-height : 500px;
-  //}
-  @include media(">tablet", "<desktop") {
-    //min-height : 375px;
-  }
-  @include media("<=tablet") {
-    //min-height : 325px;
-  }
-  @include media("<=phablet") {
-  //min-height : 250px;
-  }
-
   opacity : 0;
 
   &--double {
     flex : 1 50%;
-    min-height : 50vh;
+    min-height : 48vh;
   }
   &--triple {
     flex : 1 33.333%;
-    min-height : 45vh;
+    min-height : 42vh;
   }
+
+  &--slide {
+      min-height : 35vh;
+  }
+
+
+
   transition : all 0.5s ease-out;
 
   &.active{
-    //position : fixed;
     opacity : 1 !important;
     z-index : 999;
-
-    .gallery__tile {
-      //position : fixed;
+    .gallery__text__header__title, .gallery__text__header__sub {
+      transform : none;
     }
     top : 0;
   }
 }
 
+@include media("<desktop", "portrait") {
+  .gallery__grid__item {
+    min-height : 35vh;
+
+    &--double {
+      flex : 1 50%;
+      min-height : 32vh;
+    }
+    &--triple {
+      flex : 1 33.333%;
+      min-height : 25vh;
+    }
+
+    &--slide {
+        min-height : 30vh;
+    }
+  }
+}
 /*
 
   The default grid used on the site is a five column relative grid (20% each)

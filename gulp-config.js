@@ -43,13 +43,7 @@ module.exports = {
       description : "Description"
 
     },
-    {
-      type : "text",
-      class : "text",
-      title : "Some text goes here",
-      description : "Description"
 
-    },
     {
       type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP0323.jpg",
@@ -59,7 +53,13 @@ module.exports = {
       description : "Description"
 
     },
+    {
+      type : "text",
+      class : "slide",
+      title : "Damoy Point",
+      description : "Overnight Camp at Damoy Point"
 
+    },
     {
       type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP0508.jpg",
@@ -99,6 +99,13 @@ module.exports = {
 
     },
 
+    {
+      type : "text",
+      class : "slide",
+      title : "Deception Island",
+      description : "The edge of a volcano"
+
+    },
     {
       type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP0984.jpg",

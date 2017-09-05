@@ -282,6 +282,6 @@ gulp.task('gwatch', function() {
 
 
   // Build, start server and watch for changes.
-  gulp.task('default', gulp.series('init', 'clean', gulp.parallel('compile-templates', 'compile-images', 'compile-styles', 'compile-scripts'), 'connect', 'gwatch'), function(cb) {
+  gulp.task('default', gulp.series('init', 'clean', gulp.parallel('compile-templates', 'compile-images', 'compile-styles', 'compile-scripts', 'connect', 'gwatch')), function(cb) {
 
   });

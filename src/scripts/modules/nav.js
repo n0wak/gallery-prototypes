@@ -7,10 +7,10 @@ var Navigation = function(dom) {
   console.log ("NAV INIT")
 
   let _items = dom.getElementsByClassName("intro__nav__item");
-  for (let _item of _items) {
-    items.push({dom:_item, visible: false, active: false});
+  for (let _index = 0; _index < _items.length; _index++) {
+    items.push({dom:_items[_index], visible: false, active: false});
 
-    _item.onclick = function(e) {
+    _items[_index].onclick = function(e) {
   		e.preventDefault();
       console.log ("click", _item.getAttribute('data-scrollto'));
   		document.getElementById(_item.getAttribute('data-scrollto')).scrollIntoView(true);
