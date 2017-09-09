@@ -10,7 +10,6 @@ var Navigation = function(dom) {
 
     _items[_index].onclick = function(e) {
   		e.preventDefault();
-      console.log ("click", _item.getAttribute('data-scrollto'));
   		document.getElementById(_item.getAttribute('data-scrollto')).scrollIntoView(true);
 
       window.dispatchEvent(new Event("scroll"));
