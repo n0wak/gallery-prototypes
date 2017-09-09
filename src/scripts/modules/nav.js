@@ -4,8 +4,6 @@ var Navigation = function(dom) {
   let sticky = false;
   let index = 0;
 
-  console.log ("NAV INIT")
-
   let _items = dom.getElementsByClassName("intro__nav__item");
   for (let _index = 0; _index < _items.length; _index++) {
     items.push({dom:_items[_index], visible: false, active: false});

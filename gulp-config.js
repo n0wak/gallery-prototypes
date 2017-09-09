@@ -5,7 +5,7 @@ module.exports = {
     dev     : {
       dest            :   './public/dev/',
       deploy          :   './deploy/dev/',
-
+      url : "https://localhost:9000/"
 
     }
 
@@ -20,7 +20,7 @@ module.exports = {
       class : "single",
       url : "the-continent",
       title : "The Continent",
-      description : "Description"
+      description : "The Continent description"
 
     },
 
@@ -31,7 +31,7 @@ module.exports = {
       crop : "bottom",
       url : "icebergs-1",
       title : "Icebergs 1",
-      description : "Description"
+      description : "Icebergs 1 description"
 
     },
     {
@@ -40,7 +40,7 @@ module.exports = {
       class : "double",
       url : "icebergs-2",
       title : "Icebergs 2",
-      description : "Description"
+      description : "Icebergs 2 description"
 
     },
 
@@ -50,7 +50,7 @@ module.exports = {
       class : "single",
       url : "penguin-colony",
       title : "Penguin Colony",
-      description : "Description"
+      description : "Penguin Colony Description"
 
     },
     {
@@ -66,7 +66,7 @@ module.exports = {
       class : "double",
       url : "overnight-damoy-1",
       title : "Overnight at Damoy",
-      description : "Description"
+      description : "Overnight at DamoyDescription"
 
     },
     {
@@ -76,7 +76,7 @@ module.exports = {
       crop : "bottom",
       url : "third",
       title : "Overnight at Damoy",
-      description : "Description"
+      description : "Overnight at DamoyDescription"
 
     },
     {
@@ -85,7 +85,7 @@ module.exports = {
       class : "single",
       url : "overnight-damoy-2",
       title : "Night Sun, 2AM",
-      description : "Description"
+      description : "Overnight at DamoyDescription"
 
     },
     {
@@ -95,7 +95,7 @@ module.exports = {
       class : "single",
       url : "damoy-point",
       title : "Damoy Point",
-      description : "Description"
+      description : "Damoy Description"
 
     },
 
@@ -112,7 +112,7 @@ module.exports = {
       class : "triple",
       url : "deception-1",
       title : "Deception",
-      description : "Description"
+      description : "Deception Description"
 
     },
     {
@@ -121,7 +121,7 @@ module.exports = {
       class : "triple",
       url : "deception-entering",
       title : "Deception",
-      description : "Description"
+      description : "Deception Description"
 
     },
     {
@@ -130,7 +130,7 @@ module.exports = {
       class : "triple",
       url : "deception-2",
       title : "Deception",
-      description : "Description"
+      description : "Deception Description"
 
     },
 
@@ -140,7 +140,7 @@ module.exports = {
       class : "single",
       url : "mountains",
       title : "Mountains",
-      description : "Description"
+      description : "Mountains Description"
 
     },
     {
@@ -149,7 +149,7 @@ module.exports = {
       class : "single",
       url : "sunlight",
       title : "Sunlit",
-      description : "Description"
+      description : "Sunlight Description"
 
     },
     {
@@ -167,8 +167,8 @@ module.exports = {
       src : "https://mikenowak.imgix.net/antarctica/IMGP0160.jpg",
       class : "triple",
       url : "penguins-1",
-      title : "Deception",
-      description : "Description"
+      title : "Penguins",
+      description : "Penguins Description"
 
     },
     {
@@ -176,8 +176,8 @@ module.exports = {
       src : "https://mikenowak.imgix.net/antarctica/IMGP0439.jpg",
       class : "triple",
       url : "penguins-2",
-      title : "Deception",
-      description : "Description"
+      title : "Penguins",
+      description : "Penguins Description"
 
     },
     {
@@ -185,8 +185,8 @@ module.exports = {
       src : "https://mikenowak.imgix.net/antarctica/IMGP0685.jpg",
       class : "triple",
       url : "penguins-3",
-      title : "Deception",
-      description : "Description"
+      title : "Penguins",
+      description : "Penguins Description"
 
     },
     {
@@ -194,8 +194,8 @@ module.exports = {
       src : "https://mikenowak.imgix.net/antarctica/IMGP1064.jpg",
       class : "double",
       url : "penguins-4",
-      title : "Deception",
-      description : "Description"
+      title : "Penguins",
+      description : "Penguins Description"
 
     },
     {
@@ -214,7 +214,7 @@ module.exports = {
       class : "single",
       url : "outcrop",
       title : "Outcropping",
-      description : "Description"
+      description : "Outcropping Description"
 
     },
     {
@@ -223,7 +223,7 @@ module.exports = {
       class : "single",
       url : "ship",
       title : "Expedition",
-      description : "Description"
+      description : "Expedition Description"
     },
 
     {
@@ -232,7 +232,7 @@ module.exports = {
       class : "single",
       url : "sunset",
       title : "Sun Setting",
-      description : "Description"
+      description : "Sun Set Description"
 
     }
 

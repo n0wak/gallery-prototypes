@@ -142,7 +142,7 @@ gulp.task ("compile-templates", function(cb) {
       .pipe(
           hb (
               {
-                  'debug' : true
+                  'debug' : false
                   ,
                   'compileOptions' : {
                     'compat' : true
@@ -172,7 +172,7 @@ function BuildPagePipe(src, dest, data, fn) {
     .pipe(
         hb (
             {
-                'debug' : true
+                'debug' : false
                 ,
                 'compileOptions' : {
                   'compat' : true

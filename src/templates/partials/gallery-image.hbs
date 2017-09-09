@@ -4,7 +4,9 @@
    <div class="gallery__tile">
       <header class="gallery__tile__header type--sub">
         <h2 class="type--base">{{title}}</h2>
-        <h1 class="type--doublebase">{{short}}</h1>
+        <div class="gallery__tile__social"><a href="https://twitter.com/intent/tweet?text=Antarctica|{{title}}&url={{env.url}}/{{url}}" target="_blank"
+
+          ><svg class="icon-svg"><use xlink:href="#icon-Twitter"></use></svg></a></div>
       </header>
 
       {{#if src}}
@@ -38,5 +40,5 @@
       {{/if}}
     </div>
 
-  {{#url}}</a>{{/url}}
+  {{#if url}}</a>{{/if}}
 </div>
