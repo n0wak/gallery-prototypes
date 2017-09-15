@@ -85,8 +85,10 @@ eq : function(a, b, options) {
         return options.fn(this);
       }
       return options.inverse(this);
+    },
+    encode: function(string) {
+      return encodeURIComponent( string );
     }
-
 };
 
 function init(cb) {

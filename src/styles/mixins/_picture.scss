@@ -8,9 +8,11 @@
   bottom : 0;
 
 
-  perspective: 1000px;
+  perspective: 1500px;
 
   transition : all 0.25s ease-in;
+
+
 
   &:hover {
     background : #3F4F70;
@@ -20,8 +22,12 @@
       transform : translateY(0);
     }
     .gallery__tile__image  {
-      transform-origin: 50% 50%;
-      transform: scale(1.1) translateX(0rem) rotateX(-25deg);
+      transform-origin: 50% 70%;
+      transform: scale(1, 1.05) translateX(0rem) rotateX(-20deg) translateY(-2rem);
+    }
+    .gallery__tile__header  {
+      transform-origin: 50% 70%;
+      transform: scale(1, 1.05) translateX(0rem) rotateX(25deg) translateY(0.5rem);
     }
 
   }

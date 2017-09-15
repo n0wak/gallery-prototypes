@@ -1,12 +1,11 @@
 <div id="gallery__item--{{@index}}" class="gallery__grid__item gallery__grid__item--{{class}}" style="order:{{@index}}">
-  {{#if url}}<a href="{{../env.url}}image/{{url}}/" data-src="{{src}}" class="" name="{{title}}" tabindex="0"
-   >{{/if}}
+
    <div class="gallery__tile">
       <header class="gallery__tile__header type--sub">
-        <h2 class="type--base">{{title}}</h2>
-        <div class="gallery__tile__social"><a href="https://twitter.com/intent/tweet?text=Antarctica|{{title}}&url={{../env.url}}{{url}}" target="_blank"
-
-          ><svg class="icon-svg"><use xlink:href="#icon-Twitter"></use></svg></a></div>
+        <h2 class="type--base"><a href="{{../env.url}}image/{{url}}/" data-src="{{src}}" class="" name="{{title}}" tabindex="0">{{title}}</a></h2>
+        <div class="gallery__tile__social">
+          <a href="https://twitter.com/intent/tweet?text=Antarctica%7C{{encode title}}&url={{encode ../env.url}}{{encode url}}" target="_blank"><svg class="icon-svg"><use xlink:href="#icon-Twitter"></use></svg></a>
+        </div>
       </header>
 
       {{#if src}}
@@ -40,5 +39,4 @@
       {{/if}}
     </div>
 
-  {{#if url}}</a>{{/if}}
 </div>
