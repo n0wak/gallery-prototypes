@@ -11,27 +11,27 @@
 
 
 /*
-  Containing item. Everything has a default height of 500 unless specified otherwise.
+  Containing item.
 */
 .gallery__grid__item {
   position : relative;
   overflow : hidden;
 
   flex : 1 100%;
-  min-height : 55vh;
+  min-height : 700px;
   opacity : 0;
 
   &--double {
     flex : 1 50%;
-    min-height : 48vh;
+    min-height : 600px;
   }
   &--triple {
     flex : 1 33.333%;
-    min-height : 42vh;
+    min-height : 500px;
   }
 
   &--slide {
-      min-height : 35vh;
+    min-height : 35vh;
   }
 
 

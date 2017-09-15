@@ -263,7 +263,7 @@ var Navigation = function(dom) {
     },
 
     setIndex : function (_index) {
-      console.log ("set index", _index);
+      //console.log ("set index", _index);
 
       if (_index != -1 && _index < items.length) {
         items[index].dom.classList.remove("active");
