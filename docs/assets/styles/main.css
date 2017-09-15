@@ -194,7 +194,7 @@ main {
 }
 
 .gallery__text__header__sub {
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   transition-delay: 0.15s;
   transform: scale(0.65, 0.65);
   font-size: 1.75rem;
@@ -247,10 +247,10 @@ main {
   flex-direction: row;
   justify-content: space-between;
   background: #FFF;
-  left: 5%;
+  position: relative;
+  left: 0%;
   transition: padding 0.25s ease-in-out, box-shadow 0.5s ease-in-out, width 0.25s ease-in-out, left 0.25s ease-in-out;
-  position: absolute;
-  width: 90%;
+  width: 100%;
   margin-top: -5rem;
 }
 
