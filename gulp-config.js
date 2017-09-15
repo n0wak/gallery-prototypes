@@ -7,6 +7,12 @@ module.exports = {
       deploy          :   './deploy/dev/',
       url : "https://localhost:9000/"
 
+    },
+
+    gh : {
+      dest            :   './docs/',
+      deploy          :   './docs/',
+      url : "https://n0wak.github.io/gallery-prototypes/"
     }
 
   },

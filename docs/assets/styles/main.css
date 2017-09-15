@@ -1,0 +1,301 @@
+* {
+  box-sizing: border-box;
+}
+
+body, button, h1, h2, h3, h4, h5, h6, hr, ol, p, ul {
+  margin: 0;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+button, ol, ul {
+  padding: 0;
+}
+
+body {
+  background: #DDD;
+}
+
+main {
+  background: #FFF;
+}
+
+.type__header {
+  font-family: 'Lato', cursive;
+}
+
+.type__body {
+  font-family: 'Lora', serif;
+}
+
+.gallery__grid {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/*
+  Containing item. Everything has a default height of 500 unless specified otherwise.
+*/
+.gallery__grid__item {
+  position: relative;
+  overflow: hidden;
+  flex: 1 100%;
+  min-height: 55vh;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.gallery__grid__item--double {
+  flex: 1 50%;
+  min-height: 48vh;
+}
+
+.gallery__grid__item--triple {
+  flex: 1 33.333%;
+  min-height: 42vh;
+}
+
+.gallery__grid__item--slide {
+  min-height: 35vh;
+}
+
+.gallery__grid__item.active {
+  opacity: 1 !important;
+  z-index: 999;
+  top: 0;
+}
+
+.gallery__grid__item.active .gallery__text__header__title, .gallery__grid__item.active .gallery__text__header__sub {
+  transform: none;
+}
+
+@media (max-width: 1023px) and (orientation: portrait) {
+  .gallery__grid__item {
+    min-height: 35vh;
+  }
+  .gallery__grid__item--double {
+    flex: 1 50%;
+    min-height: 32vh;
+  }
+  .gallery__grid__item--triple {
+    flex: 1 33.333%;
+    min-height: 25vh;
+  }
+  .gallery__grid__item--slide {
+    min-height: 30vh;
+  }
+}
+
+/*
+
+  The default grid used on the site is a five column relative grid (20% each)
+  where the number of colspans is defined by a,b,c,d,e = 1,2,3,4,5 respectively.
+
+*/
+.gallery__tile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  perspective: 1000px;
+  transition: all 0.25s ease-in;
+}
+
+.gallery__tile:hover {
+  background: #3F4F70;
+}
+
+.gallery__tile:hover .gallery__tile__header {
+  transform: translateY(0);
+}
+
+.gallery__tile:hover .gallery__tile__image {
+  transform-origin: 50% 50%;
+  transform: scale(1.1) translateX(0rem) rotateX(-25deg);
+}
+
+.gallery__tile__header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.5rem;
+  color: #FFF;
+  padding: 0 1.25rem 0 1.25rem;
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  color: #EEE;
+  line-height: 1.4;
+  transition: all 0.25s ease-in-out;
+  transform: translateY(2rem);
+}
+
+.gallery__tile__header a {
+  color: #EEE;
+  text-decoration: none;
+}
+
+.gallery__tile__image {
+  position: absolute;
+  z-index: 5;
+  background: #FFF;
+  padding: 0.5rem 1rem;
+  transition: all 0.25s ease-in;
+}
+
+.gallery__tile__image, .gallery__tile__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+
+.gallery__full__image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery__full__image, .gallery__full__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.gallery__text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #FFF;
+}
+
+.gallery__text__header {
+  padding: 1rem;
+  text-align: center;
+}
+
+.gallery__text__header__title {
+  font-size: 2.5rem;
+  line-height: 2;
+  font-size: 5rem;
+  color: #3F4F70;
+  line-height: 1.5;
+  transition: all 0.25s ease-in;
+  transform: scale(0.65, 0.65);
+}
+
+.gallery__text__header__sub {
+  transition: all 0.3s ease-in;
+  transition-delay: 0.15s;
+  transform: scale(0.65, 0.65);
+  font-size: 1.75rem;
+  color: #404040;
+  line-height: 1.4;
+}
+
+.gallery__tile__social {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 0;
+  width: 64px;
+  height: 64px;
+  z-index: 999999;
+}
+
+.gallery__tile__social a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.gallery__tile__social svg {
+  display: inline-block;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  margin-right: 0.8rem;
+}
+
+.intro__header {
+  width: 100%;
+  height: 55vh;
+  padding: 1rem 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: flex-end;
+  background: #EEE;
+  top: 0;
+  padding-bottom: 6rem;
+}
+
+.intro__nav {
+  width: 100%;
+  height: 4rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #FFF;
+  left: 5%;
+  transition: padding 0.25s ease-in-out, box-shadow 0.5s ease-in-out, width 0.25s ease-in-out, left 0.25s ease-in-out;
+  position: absolute;
+  width: 90%;
+  margin-top: -5rem;
+}
+
+.intro__nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 0;
+  width: 100%;
+  margin: 0;
+  z-index: 9999;
+  box-shadow: 0 15px 20px 5px rgba(255, 255, 255, 0.5);
+}
+
+.intro__nav__item {
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  object-fit: cover;
+  padding: 2px;
+  opacity: 0.7;
+}
+
+.intro__nav__item.active {
+  opacity: 1;
+}
+
+.intro__nav__item.active:before {
+  display: block;
+  content: ' ';
+  position: absolute;
+  background: #3F4F70;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.intro__nav__item img {
+  display: block;
+}
+
+.gallery {
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+}

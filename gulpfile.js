@@ -115,7 +115,7 @@ function clean(cb) {
 gulp.task ("compile-scripts", function(cb) {
   var scripts = {
     "src" : "./src/scripts/main.js",
-    "dest" : "./public/" + env + "/assets/scripts/"
+    "dest" : gconfig.environments[env].dest + "/assets/scripts/"
   };
 
 return gulp.src ( scripts.src )
@@ -130,7 +130,7 @@ gulp.task ("compile-templates", function(cb) {
 
   var templates = {
     "src" : "./src/templates/pages/**/*.html",
-    "dest" : "./public/" + env
+    "dest" : gconfig.environments[env].dest
   };
 
   let templateData = {
@@ -205,7 +205,7 @@ gulp.task ("compile-images", function(cb) {
 
   var templates = {
     "src" : "./src/templates/dynamic/image.html",
-    "dest" : "./public/" + env + "/image"
+    "dest" : gconfig.environments[env].dest + "/image"
   };
 
   let templateData = {
@@ -226,7 +226,7 @@ gulp.task ("compile-images", function(cb) {
 gulp.task('compile-styles', function(cb) {
 
     var src  = "./src/styles/**/*.scss",
-        dest = "./public/" + env + "/assets/styles/";
+        dest = gconfig.environments[env].dest + "/assets/styles/";
 
     var sassOptions = {
         errLogToConsole: true,
@@ -283,5 +283,8 @@ gulp.task('gwatch', function() {
 
   // Build, start server and watch for changes.
   gulp.task('default', gulp.series('init', 'clean', gulp.parallel('compile-templates', 'compile-images', 'compile-styles', 'compile-scripts', 'connect', 'gwatch')), function(cb) {
+
+  });
+  gulp.task('compile', gulp.series('init', 'clean', gulp.parallel('compile-templates', 'compile-images', 'compile-styles', 'compile-scripts')), function(cb) {
 
   });
