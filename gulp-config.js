@@ -80,18 +80,18 @@ module.exports = {
       src : "https://mikenowak.imgix.net/antarctica/IMGP0512.jpg",
       class : "double",
       crop : "bottom",
-      url : "third",
+      url : "overnight-damoy-2",
       title : "Overnight at Damoy",
-      description : "Overnight at DamoyDescription"
+      description : "Overnight at Damoy Description"
 
     },
     {
       type : "image",
       src : "https://mikenowak.imgix.net/antarctica/IMGP0533.jpg",
       class : "single",
-      url : "overnight-damoy-2",
+      url : "overnight-damoy-3",
       title : "Night Sun, 2AM",
-      description : "Overnight at DamoyDescription"
+      description : "Overnight at Damoy Description"
 
     },
     {
