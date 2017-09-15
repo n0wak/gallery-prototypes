@@ -135,7 +135,8 @@ gulp.task ("compile-templates", function(cb) {
 
   let templateData = {
     title : "THE TITLE",
-    gallery : gconfig.gallery
+    gallery : gconfig.gallery,
+    env : gconfig.environments[env]
   };
 
   return gulp.src ( templates.src )
@@ -164,7 +165,8 @@ function BuildPagePipe(src, dest, data, fn) {
 
   let templateData = {
     title : "THE TITLE",
-    gallery : gconfig.gallery
+    gallery : gconfig.gallery,
+    env : gconfig.environments[env]
   };
 
 

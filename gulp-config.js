@@ -5,7 +5,7 @@ module.exports = {
     dev     : {
       dest            :   './public/dev/',
       deploy          :   './deploy/dev/',
-      url : "https://localhost:9000/"
+      url : "http://localhost:9000/"
 
     },
 
